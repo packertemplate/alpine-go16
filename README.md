@@ -11,7 +11,7 @@ make
 
 ## compile
 
-you can udpate the `compile.json` to allow packer sun scripts, compile a project, and then download.
+you can udpate the `compile.json` to allow packer run scripts, compile a project, and then download the generated files.
 
 ie
 
