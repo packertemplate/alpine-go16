@@ -9,6 +9,36 @@ linux + docker + packer
 
 make
 
+## compile
+
+you can udpate the `compile.json` to allow packer sun scripts, compile a project, and then download.
+
+ie
+
+```json
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "git clone https://<repo>/",
+        "<commands>",
+        "sleep 5"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "/path1/file1",
+      "destination": "myip",
+      "direction": "download"
+    },
+    {
+      "type": "file",
+      "source": "/path2/file2",
+      "destination": "file2",
+      "direction": "download"
+    }
+  ]
+```
 ## test
 
 make test
