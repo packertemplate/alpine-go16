@@ -55,5 +55,10 @@ $ make test
 docker run --rm alpine-go16 go version
 go version go1.6 linux/amd64
 $ 
+
+$ docker images alpine-go16
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+alpine-go16         latest              00e03bad340f        7 minutes ago       1.601 GB
+
 ```
 
