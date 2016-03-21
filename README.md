@@ -1,6 +1,10 @@
 # alpine-go16
 repo to build a docker container for alpine with go16
 
+## requirements
+
+linux + docker + packer
+
 ## build
 
 make
