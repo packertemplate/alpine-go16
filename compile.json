@@ -1,0 +1,21 @@
+{
+  "builders": [
+    {
+      "type": "docker",
+      "name": "alpine",
+      "image": "alpine-go16",
+      "run_command": ["-d", "-i", "-t", "{{.Image}}", "/bin/sh", "-l"],
+      "pull": false,
+      "discard": true
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "go version",
+        "sleep 5"
+      ]
+    }
+  ]
+}

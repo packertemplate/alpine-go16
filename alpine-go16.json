@@ -1,0 +1,37 @@
+{
+  "post-processors": [
+    {
+      "tag": "latest",
+      "repository": "alpine-go16",
+      "type": "docker-tag"
+    }
+  ],
+  "provisioners": [
+    {
+      "inline": [
+        "grep community /etc/apk/repositories || ( echo 'http://dl-5.alpinelinux.org/alpine/edge/community' | tee -a /etc/apk/repositories)",
+        "apk update",
+        "apk add go go-tools go-cross",
+        "rm /var/cache/apk/*",
+        "sleep 5"
+      ],
+      "type": "shell"
+    }
+  ],
+  "builders": [
+    {
+      "commit": true,
+      "pull": true,
+      "run_command": [
+        "-d",
+        "-i",
+        "-t",
+        "{{.Image}}",
+        "/bin/sh",
+        "-l"
+      ],
+      "image": "alpine:edge",
+      "type": "docker"
+    }
+  ]
+}
